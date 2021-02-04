@@ -90,7 +90,8 @@ for i in range(len(states)):
     s[:,24:26] = function2(state_code, state_name, municipality_data, health_providers_data, municipality_area_data, houses_data)
     # Redondeamos todos los resultados a dos decimales y se escriben como porcentaje, menos las ultimas dos filas
     s[:,1:-8] = np.round(s[:,1:-8]*100,2)
-    s[:,-8:] = np.round(s[:,-8:],6)
+    s[:,-8:-2] = np.round(s[:,-8:-2]*100,4)
+    s[:,-2:] = np.round(s[:,-2:],6)
     # Se ajustan los codigos de cada municipio para el merge final
     s[:,0] = s[:,0] + state_code*1000
 
