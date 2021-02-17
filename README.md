@@ -9,7 +9,7 @@ This repository contains the scripts and csv files used to recollect the socioec
 - **Ages (%):**
 - **Afrocolombian Population (%):**
 - **Indian Population (%):**
-- **People with Disabilities (%):**
+- **People with Disabilities (%):** This variable describes the group of people who have some physical, psychological or mental limitation.
 - **People who cannot read or write (%):**
 - **Secondary/Higher Education (%):**
 - **Employed population (%):**
@@ -17,8 +17,8 @@ This repository contains the scripts and csv files used to recollect the socioec
 - **People doing housework (%):**
 - **Retired people (%):**
 - **Gender (%):**
-- **Households without water access (%):**
-- **Households without internet access (%):**	
+- **Households without water access (%):**This variable describes the group of people who have access to water service at home.
+- **Households without internet access (%):**	This variable describes the group of people who have internet service at home.
 - **Building stratification (%):**
 - **Number of hospitals per Km2:**
 - **Number of houses per Km2:**
