@@ -10,11 +10,11 @@ This repository contains the scripts and csv files used to recollect the socioec
 - **Afrocolombian Population (%):**
 - **Indian Population (%):**
 - **People with Disabilities (%):** This variable describes the group of people who have some physical, psychological or mental limitation.
-- **People who cannot read or write (%):**
+- **People who cannot read or write (%):** This variable describes the group of people who have not been able to develop skills such as reading or writing.
 - **Secondary/Higher Education (%):**
-- **Employed population (%):**
+- **Employed population (%):** This variable describes the group of people who have not been able to develop skills such as reading or writing.
 - **Unemployed population (%):**
-- **People doing housework (%):**
+- **People doing housework (%):** This variable describes the group of people who perform household chores.
 - **Retired people (%):** This variable describes the group of people who have completed their work cycle.
 - **Gender (%):**
 - **Households without water access (%):** This variable describes the group of people who have access to water service at home.
