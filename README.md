@@ -4,7 +4,7 @@
 This repository contains the scripts and csv files used to recollect the socioeconomic and demographic indicators of Colombia's population.
 
 ## Variables
-- **Population:**
+
 - **Cases:** This variable describes the number of dengue cases between 2018 and 2020.
 - **Ages (%):** This variable describes the age range of the population.
 - **Afrocolombian Population (%):**
