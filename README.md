@@ -5,13 +5,13 @@ This repository contains the scripts and csv files used to recollect the socioec
 
 ## Variables
 - **Population:**
-- **Cases:**
-- **Ages (%):**
+- **Cases:** This variable describes the number of dengue cases between 2018 and 2020.
+- **Ages (%):** This variable describes the age range of the population.
 - **Afrocolombian Population (%):**
 - **Indian Population (%):**
 - **People with Disabilities (%):** This variable describes the group of people who have some physical, psychological or mental limitation.
 - **People who cannot read or write (%):** This variable describes the group of people who have not been able to develop skills such as reading or writing.
-- **Secondary/Higher Education (%):**
+- **Secondary/Higher Education (%):** This variable describes the group of people who are in school or academic process.
 - **Employed population (%):** This variable describes the group of people who have not been able to develop skills such as reading or writing.
 - **Unemployed population (%):** This variable describes the group of people who are not engaged in work.
 - **People doing housework (%):** This variable describes the group of people who perform household chores.
