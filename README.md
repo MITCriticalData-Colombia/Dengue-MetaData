@@ -17,7 +17,7 @@ This repository contains the scripts and csv files used to recollect the socioec
 - **People doing housework (%):**
 - **Retired people (%):** This variable describes the group of people who have completed their work cycle.
 - **Gender (%):**
-- **Households without water access (%):**This variable describes the group of people who have access to water service at home.
+- **Households without water access (%):** This variable describes the group of people who have access to water service at home.
 - **Households without internet access (%):**	This variable describes the group of people who have internet service at home.
 - **Building stratification (%):** This variable describes the groups in which the population is divided according to parameters, which could be location, economic level, quality of services received, among others.
 - **Number of hospitals per Km2:**
