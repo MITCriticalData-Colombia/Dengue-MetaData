@@ -19,8 +19,8 @@ This repository contains the scripts and csv files used to recollect the socioec
 - **Households without water access (%):** This variable describes the group of people who have access to water service at home.
 - **Households without internet access (%):**	This variable describes the group of people who have internet service at home.
 - **Building stratification (%):** This variable describes the groups in which the population is divided according to parameters, which could be location, economic level, quality of services received, among others.
-- **Number of hospitals per Km2:**
-- **Number of houses per Km2:**
+- **Number of hospitals per Km2:** This variable describes the number of hospitals per Km2.
+- **Number of houses per Km2:** This variable describes the number of households per Km2.
 
 ## Final File
 The file with the final variables is called DANE_Dengue_Data_Variables.csv
