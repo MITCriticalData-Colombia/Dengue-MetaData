@@ -16,11 +16,14 @@ This branch contains the csv files that describes the socioeconomic, demographic
           <li><h4>DANE_Dengue_Data_Variables_v3.csv :</h4></li> File similar to DANE_Dengue_Data_2015_2019.csv, but with weekly endgue cases also.
         </ul>
   
-  <li><h3>WorldClimTemperature2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook, to extract the average temperature values for each Municipality of Colombia in each month from 2007 till 2018.
+  <li><h3>WorldClimTemperature2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook in R, to extract the average temperature values for each Municipality of Colombia in each month from 2007 till 2018.
   
-  <li><h3>worldclimPrecipitation2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook, to extract the precipitation values for each Municipality of Colombia in each month from 2007 till 2018.
+  <li><h3>worldclimPrecipitation2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook in R, to extract the precipitation values for each Municipality of Colombia in each month from 2007 till 2018.
   
-  <li><h3>DANE_Dengue_Data_Variables.csv :</h3></li> Final file before add the themperature and precipitation data
+  <li><h3>ColombiaData.ipynb :</h3></li> This file contains a Google Collab notebook in python, used for the operations of the datastes like cleanmerge, join, drop, etc.
+  
+  
+  <li><h3>DANE_Dengue_Data_Variables.csv :</h3></li> Final file before add the themperature and precipitation data and weekly cases.
         <h4> Variables </h4>
         <ul>
           <li>Cases:</li> This variable describes the number of dengue cases between 2018 and 2020.
@@ -41,9 +44,9 @@ This branch contains the csv files that describes the socioeconomic, demographic
           <li>Number of hospitals per Km2:</li> This variable describes the number of hospitals per Km2.
           <li>Number of houses per Km2: </li> This variable describes the number of households per Km2.
         </ul>
-
+        
   
-  <li><h3> dengue_temperature_precipitation_2015-2019.csv :</h3></li> This is the final file, with sociodemographic data, temperature, precipitations, and dengue cases, this file contains <strong>The same variables of DANE_Dengue_Data_Variables.csv and other extra variables:</strong>
+  <li><h3> dengue_temperature_precipitation_2015-2019.csv :</h3></li> This file still doesn´t have weekly cases, but contains sociodemographic data, temperature (2015 - 2018), precipitations (2015 - 2018), and dengue cases(2015 - 2019), this file contains <strong>The same variables of DANE_Dengue_Data_Variables.csv and other extra variables:</strong>
   
   <h4> Extra variables: </h4>
         <ul>
@@ -52,5 +55,10 @@ This branch contains the csv files that describes the socioeconomic, demographic
           <li>Temperature by month:</li> These variables have the aveage temperature each month in a specific municipality follow a pattern: <strong> TEMPERATURE_Month_year </strong>
           <li>Temperature by year:</li> These variables are the average of temperature in a year and follow a pattern: <strong> TMAnual_year </strong>
         </ul>  
+
+</ul>
+
+  
+  <li><h3> cases_2007_2019_wclim_temp_prep_2015_2018_for_required - Copy.csv :</h3></li> This is the final file (by now) contains the same data than dengue_temperature_precipitation_2015-2019.csv (sociodemographic, temperature (2015 - 2018), precipitations (2015 - 2018)), and also weekly dengue cases(2007 - 2019), this file contains <strong>The same variables of DANE_Dengue_Data_Variables.csv and other extra variables:</strong>
 
 </ul>
