@@ -14,7 +14,9 @@ This branch contains the csv files that describes the socioeconomic, demographic
           <li><h4>tempearture2007-2018.csv :</h4></li> This file has the data of the averqge temperature of each municipality each month of the year from 2007 till 2018, and the average temperature each year.
         </ul>
   
-  <li><h3>WorldClimTemperature2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook, to extract the average temperature values for each Municipality of Colombia in each month from 2007 till 2018
+  <li><h3>WorldClimTemperature2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook, to extract the average temperature values for each Municipality of Colombia in each month from 2007 till 2018.
+  
+  <li><h3>worldclimPrecipitation2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook, to extract the precipitation values for each Municipality of Colombia in each month from 2007 till 2018.
   
   <li><h3>DANE_Dengue_Data_Variables.csv :</h3></li> Final file before add the themperature and precipitation data
         <h4> Variables </h4>
@@ -40,6 +42,7 @@ This branch contains the csv files that describes the socioeconomic, demographic
 
   
   <li><h3> dengue_temperature_precipitation_2015-2019.csv :</h3></li> This is the final file, with sociodemographic data, temperature, precipitations, and dengue cases, this file contains <strong>The same variables of DANE_Dengue_Data_Variables.csv and other extra variables:</strong>
+  
   <h4> Extra variables: </h4>
         <ul>
           <li>Precipitation by month:</li> These variables have the aveage precipitation each month in a specific municipality follow a pattern: <strong> PRECIPITATION_Month_year </strong>
