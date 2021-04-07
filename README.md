@@ -59,6 +59,6 @@ This branch contains the csv files that describes the socioeconomic, demographic
 </ul>
 
   
-  <li><h3> cases_2007_2019_wclim_temp_prep_2015_2018_for_required - Copy.csv :</h3></li> This is the final file (by now) contains the same data than dengue_temperature_precipitation_2015-2019.csv (sociodemographic, temperature (2015 - 2018), precipitations (2015 - 2018)), and also weekly dengue cases(2007 - 2019), this file contains <strong>The same variables of DANE_Dengue_Data_Variables.csv and other extra variables:</strong>
+  <li><h3> cases_2007_2019_wclim_temp_prep_2015_2018_for_required - Copy.csv :</h3></li> This file contains the same data than dengue_temperature_precipitation_2015-2019.csv (sociodemographic, temperature (2015 - 2018), precipitations (2015 - 2018)), and also weekly dengue cases(2007 - 2019), but just for the most affected municipalities of dengue in Colombia.
 
 </ul>
