@@ -13,12 +13,15 @@ This branch contains the csv files that describes the socioeconomic, demographic
           <li><h4>worldclim_temperature_2015-2018.csv :</h4></li> This file has the data of the mean temperature of each municipality each month of the year from 2015 till 2018, and the average temperature each year.
           <li><h4>tempearture2007-2018.csv :</h4></li> This file has the data of the averqge temperature of each municipality each month of the year from 2007 till 2018, and the average temperature each year.
           <li><h4>precipitation2007_2018.csv :</h4></li> This file has the data of the precipitation of each municipality each month of the year from 2007 till 2018.
+          <li><elevation.csv :</h4></li> This file has the data of elevation for each municipality in Colombia.
           <li><h4>DANE_Dengue_Data_Variables_v3.csv :</h4></li> File similar to DANE_Dengue_Data_2015_2019.csv, but with weekly endgue cases also.
         </ul>
   
   <li><h3>WorldClimTemperature2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook in R, to extract the average temperature values for each Municipality of Colombia in each month from 2007 till 2018.
   
   <li><h3>worldclimPrecipitation2007_2018.ipynb :</h3></li> This file contains a Google Collab notebook in R, to extract the precipitation values for each Municipality of Colombia in each month from 2007 till 2018.
+  
+  <li><h3>worldclimElevation.ipynb :</h3></li> This file contains a Google Collab notebook in R, to extract the elevation values for each Municipality of Colombia.
   
   <li><h3>ColombiaData.ipynb :</h3></li> This file contains a Google Collab notebook in python, used for the operations of the datastes like cleanmerge, join, drop, etc.
   
