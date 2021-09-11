@@ -33,18 +33,19 @@ from sklearn.metrics import  mean_absolute_error
 #print(tf.__version__)
 #Libreries for Espectral analysis
 from scipy import signal
-
+from scipy.signal import savgol_filter
 
 # Set Seed
 tf.random.set_seed(1)
 
-merge_cases_temp_precip = pd.read_csv("../Data/merge_cases_temperature_WeeklyPrecipitation_timeseries.csv")
+merge_cases_temp_precip = pd.read_csv("../Data/merge_cases_WeeklyTemperature_WeeklyPrecipitation_timeseries.csv")
 merge_cases_temp_precip = merge_cases_temp_precip.drop('Unnamed: 0', 1)
 merge_cases_temp_precip.LastDayWeek = pd.to_datetime(merge_cases_temp_precip.LastDayWeek)
 
-dataset = merge_cases_temp_precip[['temperature_medellin','percipitation_medellin','cases_medellin']]
+dataset = merge_cases_temp_precip[['temperature','percipitation_medellin','cases_medellin']]
+dataset["temperature"] = savgol_filter(dataset["temperature"], 5, 3)
 dataset.index = merge_cases_temp_precip.LastDayWeek
-
+dataset.fillna(0)
 
 train_dates = pd.to_datetime(merge_cases_temp_precip.LastDayWeek)
 
@@ -79,7 +80,7 @@ print('testX shape == {}.'.format(testX.shape))
 print('testY shape == {}.'.format(testY.shape))
 
 #model = lstm_1(trainX,trainY)
-model = lstm(trainX,trainY)
+model = lstm_2(trainX,trainY)
 
 # fit the model
 history = model.fit(trainX, trainY, epochs=15, batch_size=64, validation_split=0.2, verbose=1)

@@ -129,7 +129,7 @@ def lstm_2(trainX,trainY):
     model.add(Dense(trainY.shape[1]))
     
     model.compile(loss='mae', metrics=['mae'], 
-                  optimizer=tf.optimizers.Adam(0.01))
+                  optimizer=tf.optimizers.Adam(0.001))
     model.summary()
     return model 
 
