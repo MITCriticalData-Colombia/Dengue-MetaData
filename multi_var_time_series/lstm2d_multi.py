@@ -1,21 +1,45 @@
 # -*- coding: utf-8 -*-
 
+import tensorflow as tf
+tf.test.is_gpu_available(
+    cuda_only=False, min_cuda_compute_capability=None
+)
+
+gpu = len(tf.config.list_physical_devices('GPU'))>0
+print("GPU is", "available" if gpu else "NOT AVAILABLE")
+
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+
 import numpy as np 
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import math
+import os
+import time
 #Librerias de TF
-from keras.models import Sequential
+
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import  mean_absolute_error
-
-#from keras.callbacks import EarlyStopping
-from tensorflow.keras.layers import ConvLSTM2D, LSTM, Dense, Dropout,LSTM, Flatten,RepeatVector,TimeDistributed
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
+
+#from keras.callbacks import EarlyStopping
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.layers import ConvLSTM2D, Bidirectional, LSTM, Dense, Dropout,LSTM, Flatten,RepeatVector,TimeDistributed
+# keras modules
+import keras_tuner as kt
+from kerastuner.tuners import BayesianOptimization,RandomSearch
+# Set Seed
+tf.random.set_seed(1)
 
 from pandas.tseries.holiday import USFederalHolidayCalendar
 from pandas.tseries.offsets import CustomBusinessDay
@@ -25,7 +49,7 @@ from sklearn.metrics import  mean_absolute_error
 #Libreries for Espectral analysis
 from scipy import signal
 
-merge_cases_temp_precip = pd.read_csv("./Data/merge_cases_temperature_WeeklyPrecipitation_timeseries.csv")
+merge_cases_temp_precip = pd.read_csv("../Data/merge_cases_temperature_WeeklyPrecipitation_timeseries.csv")
 merge_cases_temp_precip = merge_cases_temp_precip.drop('Unnamed: 0', 1)
 merge_cases_temp_precip.LastDayWeek = pd.to_datetime(merge_cases_temp_precip.LastDayWeek)
 
@@ -64,7 +88,7 @@ def to_sequences(dataset, n_past, n_future):
     y = []
     for i in range(n_past, len(dataset) - n_future +1):
       x.append(dataset[i - n_past:i, 0:dataset.shape[1]])
-      y.append(dataset[i + n_future - 1:i + n_future, 0])
+      y.append(dataset[i + n_future - 1:i + n_future, 2])
       
     return np.array(x), np.array(y) 
 
@@ -76,7 +100,6 @@ print('trainY shape == {}.'.format(trainY.shape))
 print('testX shape == {}.'.format(testX.shape))
 print('testY shape == {}.'.format(testY.shape))
 
-from keras.layers import Bidirectional
 
 def lstm2d_model(trainX):
     model = Sequential()
@@ -84,7 +107,7 @@ def lstm2d_model(trainX):
     model.add(Flatten())
     model.add(Dense(32))
     model.add(Dense(1))
-    model.compile(optimizer='adam', loss='mean_squared_error')
+    model.compile(optimizer='adam', loss='mae')
     model.summary()
     return model
 
@@ -114,18 +137,18 @@ y_test_pred = y_test_pred.squeeze()
 ## Training data
 # Predictions
 prediction_copies_train = np.transpose([y_train_pred] * dataset.shape[1]) #np.repeat(y_train_pred, dataset.shape[1])
-y_pred_train = scaler.inverse_transform(prediction_copies_train)[:,0]
+y_pred_train = scaler.inverse_transform(prediction_copies_train)[:,2]
 # Labels
 prediction_copies_train_gt = np.repeat(trainY, dataset.shape[1], axis=-1)
-y_pred_train_GT = scaler.inverse_transform(prediction_copies_train_gt)[:,0]
+y_pred_train_GT = scaler.inverse_transform(prediction_copies_train_gt)[:,2]
 
 ## Testing data
 # Predictions
 prediction_copies_test = np.transpose([y_test_pred] * dataset.shape[1]) 
-y_pred_test= scaler.inverse_transform(prediction_copies_test)[:,0]
+y_pred_test= scaler.inverse_transform(prediction_copies_test)[:,2]
 # Labels
 prediction_copies_test_gt = np.repeat(testY, dataset.shape[1], axis=-1)
-y_pred_test_GT = scaler.inverse_transform(prediction_copies_test_gt)[:,0]
+y_pred_test_GT = scaler.inverse_transform(prediction_copies_test_gt)[:,2]
 
 # calculate root mean squared error
 trainScore = math.sqrt(mean_squared_error(y_pred_train_GT, y_pred_train))
@@ -146,42 +169,3 @@ plt.legend(loc="upper left")
 plt.suptitle('Time-Series Prediction')
 plt.show()
 
-'''
-us_bd = CustomBusinessDay(calendar=USFederalHolidayCalendar())
-
-n_past = 16
-n_days_for_prediction=15  #let us predict past 15 weeks
-
-predict_period_dates = pd.date_range(list(train_dates)[-n_past], periods=n_days_for_prediction, freq=us_bd).tolist()
-
-prediction = model.predict(testX[-n_days_for_prediction:])
-
-prediction_copies = np.repeat(prediction, dataset.shape[1], axis=-1)
-y_pred_future = scaler.inverse_transform(prediction_copies)[:,0]
-
-
-# Convert timestamp to date
-forecast_dates = []
-for time_i in predict_period_dates:
-    forecast_dates.append(time_i.date())
-
-df_forecast = pd.DataFrame({'Date':np.array(forecast_dates), 'cases':y_pred_future})
-df_forecast['Date']=pd.to_datetime(df_forecast['Date'])
-
-# Extract GT
-ground_truth = []
-ground_truth = pd.DataFrame({'Date':np.array(forecast_dates), 'cases':y_pred_test_GT[-n_days_for_prediction:]})
-# calculate MAE
-mae = mean_absolute_error(ground_truth["cases"], df_forecast["cases"])
-print('Test MAE: %.3f' % mae)
-testScore = math.sqrt(mean_squared_error(ground_truth["cases"], df_forecast["cases"]))
-print('Test Score: %.2f RMSE' % (testScore))
-
-plt.figure(2)
-plt.plot(ground_truth["cases"], label = 'actual')
-plt.plot(df_forecast["cases"], label = 'predicted')
-plt.legend(loc="upper left")
-
-plt.suptitle('Time-Series Prediction')
-plt.show()
-'''
