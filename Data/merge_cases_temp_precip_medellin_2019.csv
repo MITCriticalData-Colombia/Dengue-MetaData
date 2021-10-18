@@ -1,4 +1,4 @@
-,cases_medellin,DATA,YEAR,YearWeek,LastDayWeek,MONTH,temperature,Medellin,MedellinRural,MedellinUrbano
+,cases_medellin,DATA,YEAR,YearWeek,LastDayWeek,MONTH,temperature,percipitation_medellin,percipitation_medellin_rural,percipitation_medellin_urbano
 0,1,"['2007', 'w01']",2007,200701,2007-01-06,1,19.615357142857142,10.40042309631521,11.93265974786547,9.624379503180128
 1,0,"['2007', 'w02']",2007,200702,2007-01-13,1,22.234,19.51061511416264,20.18247632289278,19.15314160180748
 2,0,"['2007', 'w03']",2007,200703,2007-01-20,1,22.26885714285714,2.036513927234401,0.8256070611557523,2.551440747943493
